@@ -1,9 +1,10 @@
 # Read-ExcelFile.psm1
 
-This PowerShell script was created from the request to process an Excel file on a server where no Excel is installed.
+This PowerShell script was created about the request to process an Excel file on a server where no Excel is installed.
 
 The script is kept very simple. It is only about the import of an Excel table and the processing of the data into a PowerShell object which can be used for further processing.
 
+PSGallery: [https://www.powershellgallery.com/packages/Read-ExcelFile/](https://www.powershellgallery.com/packages/Read-ExcelFile/)
 ## Installing the module
 Start by installing the module
 ```powershell
