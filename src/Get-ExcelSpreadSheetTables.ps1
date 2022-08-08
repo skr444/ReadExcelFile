@@ -1,48 +1,30 @@
-﻿<#
-
-    .SYNOPSIS
-    Returns the cell content from an Excel spreadsheet.
- 
-    .DESCRIPTION
-    Returns the cell content from an Excel spreadsheet.
-
-    .NOTES
-    File Name : Get-ExcelCellContent.ps1
-    Author    : Pascal Rimark
-    Requires  : PowerShell Version 3.0
+﻿function Get-ExcelSpreadSheetTables {
+    <#
+        .SYNOPSIS
+        Returns the cell content from an Excel spreadsheet.
     
-    .LINK
-    To provide feedback or for further assistance email:
-    pascal@rimark.de
+        .DESCRIPTION
+        Returns the cell content from an Excel spreadsheet.
 
-    .PARAMETER File
-    Specify the file location of the excel file to import
-    String
+        .PARAMETER File
+        Specify the file location of the excel file to import
+        String
 
-    .PARAMETER Address
-    Specify the address of the cell (e.g A1 or B21). 
-    String
+        .EXAMPLE
+        Get-ExcelCellContent .\MyExcel.xlsx
+    #>
 
-    .EXAMPLE
-    Get-ExcelCellContent .\MyExcel.xlsx -Address "B21"
-
-#>
-
-function Get-ExcelSpreadSheetTables() {
     param(
 
-        [Parameter(Mandatory=$True)]
-        [string]$File = "C:\users\primark\desktop\UICS-O365-Pre-RoleoutV2.xlsx"
+        [Parameter(Mandatory = $true)]
+        [string]$File
 
     )
-
-    $stopwatch =  [system.diagnostics.stopwatch]::StartNew()
 
     Write-Verbose "ScriptRoot: $PSScriptRoot"
 
     try {
         $epplus = [System.Reflection.Assembly]::LoadFile("$PSScriptRoot\EPPlus.dll");
-        #$epplus = [System.Reflection.Assembly]::LoadFile("C:\Users\primark\Desktop\Powershell\impexc\EPPlus.dll");
         Write-Verbose "Assembly loaded"
     } catch {
         throw "FAILED_LOADING_ASSEMBLY_FILE - $($_.Exception.Message)"

@@ -1,41 +1,36 @@
-﻿<#
-
-    .SYNOPSIS
-    Reads an Excel file and creates a PowerShell object from it.
- 
-    .DESCRIPTION
-    Reads an Excel file and creates a PowerShell object from it.
-
-    .NOTES
-    File Name : Read-ExcelFile.ps1
-    Author    : Pascal Rimark
-    Requires  : PowerShell Version 3.0
+﻿function Read-ExcelFile {
+    <#
+        .SYNOPSIS
+        Reads an Excel file and creates a PowerShell object from it.
     
-    .LINK
-    To provide feedback or for further assistance email:
-    pascal@rimark.de
+        .DESCRIPTION
+        See Synopsis.
 
-    .PARAMETER File
-    Specify the file location of the excel file to import
-    String
+        .PARAMETER File
+        Specify the file location of the excel file to import
+        String
 
-    .PARAMETER WorkSheetName
-    Specify the name of the worksheet where the table to be imported is located. 
-    String
+        .PARAMETER WorkSheetName
+        Specify the name of the worksheet where the table to be imported is located. 
+        String
 
-    .EXAMPLE
-    Read-ExcelFile .\MyExcel.xlsx
-    .EXAMPLE
-    Read-ExcelFile -File .\MyExcel.xlsx -WorkSheet "Table 2"
-    .EXAMPLE
-    Read-ExcelFile -File .\MyExcel.xlsx -WorkSheet "Table 2" -Verbose
+        .EXAMPLE
+        Read-ExcelFile .\MyExcel.xlsx
+        .EXAMPLE
+        Read-ExcelFile -File .\MyExcel.xlsx -WorkSheet "Table 2"
+        .EXAMPLE
+        Read-ExcelFile -File .\MyExcel.xlsx -WorkSheet "Table 2" -Verbose
+    #>
 
-#>
-
+    [CmdletBinding()]
     param(
-        [Parameter(Mandatory=$True)]
-        [string]$File,
-        [string]$WorkSheetName
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]
+        $File,
+
+        [Parameter(Mandatory = $false)]
+        [string]
+        $WorkSheetName
     )
 
     $stopwatch =  [system.diagnostics.stopwatch]::StartNew()
@@ -134,5 +129,4 @@
     Write-Verbose "Elapsed Time: $($stopwatch.Elapsed)"
 
     return $export
-
-#Read-ExcelFile -File C:\users\primark\Desktop\Powershell\impexc\O365-TeamsTelefonie.xlsx
+}

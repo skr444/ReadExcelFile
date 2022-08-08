@@ -3,30 +3,31 @@
     RequiredAssemblies = @('.\EPPlus.dll')
 
     # Script module or binary module file associated with this manifest.
-    RootModule         = 'Read-ExcelFile.psm1'
+    RootModule         = 'ReadExcelFile.psm1'
 
     # Version number of this module.
-    ModuleVersion      = '2.1'
+    ModuleVersion      = '1.0.0'
+    
+    # Minimum version of the Windows PowerShell engine required by this module
+    PowerShellVersion = '5.1'
 
     # ID used to uniquely identify this module
-    GUID               = '5bc8dd3d-4ce9-45b6-b70c-d415bf36f4a1'
+    GUID               = '45d850bc-d47c-4ba0-9602-5a11aa14a648'
 
     # Author of this module
-    Author             = 'Pascal Rimark'
+    Author             = 'skr444'
 
     # Company or vendor of this module
-    CompanyName        = 'Pascal Rimark'
+    CompanyName        = 'skr'
 
     # Copyright statement for this module
-    Copyright          = 'c 2020 All rights reserved.'
+    Copyright          = '(C) skr 2022 All rights reserved.'
 
     # Description of the functionality provided by this module
     Description        = @'
 PowerShell module to import Excel spreadsheets, without Excel.
 Creates a PowerShell Object from an imported Excel spreadsheet.
 '@
-
-
 
     # Functions to export from this module
     FunctionsToExport  = @(
@@ -36,14 +37,18 @@ Creates a PowerShell Object from an imported Excel spreadsheet.
         'Get-ExcelWorkSheets'
     )
 
-    # Aliases to export from this module
-    AliasesToExport    = @(
-        'ref'
-    )
-
     # Cmdlets to export from this module
     CmdletsToExport    = @()
 
+    # Variables to export from this module
+    VariablesToExport  = @(
+        'EpplusLibPath'
+    )
+
+    # Aliases to export from this module
+    AliasesToExport    = "*"
+
+    # List of all files packaged with this module
     FileList           = @(
         '.\EPPlus.dll',
         '.\Read-ExcelFile.ps1'
@@ -69,10 +74,10 @@ Creates a PowerShell Object from an imported Excel spreadsheet.
             #IconUri = ""
 
             # The web address of this module's project or support homepage.
-            ProjectUri   = ""
+            ProjectUri   = "https://github.com/skr444/ReadExcelFile"
 
             # The web address of this module's license. Points to a page that's embeddable and linkable.
-            #LicenseUri   = ""
+            LicenseUri   = "https://www.gnu.org/licenses/gpl-3.0.en.html"
 
             # Release notes for this particular version of the module
             #ReleaseNotes = $True
@@ -84,9 +89,6 @@ Creates a PowerShell Object from an imported Excel spreadsheet.
             IsPrerelease = 'False'
         }
     }
-
-    # Minimum version of the Windows PowerShell engine required by this module
-    # PowerShellVersion = ''
 
     # Name of the Windows PowerShell host required by this module
     # PowerShellHostName = ''
@@ -121,14 +123,9 @@ Creates a PowerShell Object from an imported Excel spreadsheet.
     # List of all modules packaged with this module
     # ModuleList = @()
 
-    # List of all files packaged with this module
-    # Variables to export from this module
-    #VariablesToExport = '*'
-
     # HelpInfo URI of this module
     # HelpInfoURI = ''
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''
-
 }
