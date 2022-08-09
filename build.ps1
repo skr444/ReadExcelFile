@@ -26,6 +26,7 @@ param (
 )
 
 $VerbosePreference = "Continue"
+$ErrorActionPreference = "Stop"
 
 $outputDir = "./build/ReadExcelFile/"
 
