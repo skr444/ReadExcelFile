@@ -17,7 +17,6 @@ $ErrorActionPreference = "Stop"
 
 # check preconditions
 if (-not ((Test-Path -Path $EpplusLibPath) -and ([System.IO.Path]::GetExtension($EpplusLibPath) -eq ".dll"))) {
-} else {
     throw "Requires '${EpplusLibPath}'"
 }
 
